@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj usando canvas</title>
+</head>
+<style>
+    body {
+        background-color: #000;
+        margin: 0 auto;
+        padding: 0;
+        width: 500px;
+    }
+</style>
+<body>
+    <canvas id="relojCanvas" width="400" height="400"></canvas>
+    <script>
+        // Obtener el contexto de dibujo 2D del canvas
+        const canvas = document.getElementById("relojCanvas"); // Obtiene el elemento canvas por su ID
+        const ctx = canvas.getContext("2d"); // Obtiene el contexto de dibujo 2D del canvas
+    
+        // Función para dibujar el reloj analógico
+        function drawClock() {
+            const now = new Date(); // Obtiene la hora actual
+            const hours = now.getHours() % 12; // Obtiene las horas y las convierte en formato de 12 horas
+            const minutes = now.getMinutes(); // Obtiene los minutos
+            const seconds = now.getSeconds(); // Obtiene los segundos
+    
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
+    
+            // Dibujar un borde alrededor del reloj con efecto de neón
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 155, 0, Math.PI * 2); // Dibuja un arco
+            ctx.shadowBlur = 20; // Añade un efecto de neón con sombra
+            ctx.shadowColor = "blue"; // Establece el color de la sombra
+            ctx.strokeStyle = "blue"; // Establece el color del borde
+            ctx.lineWidth = 10; // Establece el ancho de línea
+            ctx.stroke(); // Dibuja el borde
+            ctx.shadowBlur = 0; // Restaura el efecto de sombra a cero
+            ctx.closePath(); // Cierra el camino
+    
+            // Dibujar el círculo del reloj con efecto de neón
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 150, 0, Math.PI * 2); // Dibuja un arco
+            ctx.strokeStyle = "blue"; // Establece el color del borde
+            ctx.lineWidth = 4; // Establece el ancho de línea
+            ctx.stroke(); // Dibuja el borde
+            ctx.closePath(); // Cierra el camino
+    
+            // Dibujar el centro del reloj con un punto de neón
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 10, 0, Math.PI * 2); // Dibuja un arco
+            ctx.fillStyle = "blue"; // Establece el color de relleno
+            ctx.fill(); // Rellena el centro del reloj
+            ctx.closePath(); // Cierra el camino
+            
+            // Dibujar las manecillas de las horas con efecto de neón
+            ctx.save(); // Guarda el estado actual del contexto
+            ctx.translate(canvas.width / 2, canvas.height / 2); // Translada el origen de coordenadas al centro del canvas
+            ctx.rotate((Math.PI / 6) * hours + (Math.PI / 360) * minutes); // Rota el contexto según las horas y minutos
+            ctx.beginPath(); //creacion de una nueva ruta
+            ctx.moveTo(0, 0); // Mueve el punto de inicio
+            ctx.lineTo(0, -60); // Dibuja una línea hacia arriba
+            ctx.strokeStyle = "blue"; // Establece el color del borde
+            ctx.lineWidth = 12; // Establece el ancho de línea
+            ctx.stroke(); // Dibuja la manecilla de las horas
+            ctx.closePath(); // Cierra el camino
+            ctx.restore(); // Restaura el estado del contexto
+    
+            // Dibujar las manecillas de los minutos con efecto de neón
+            ctx.save(); // Guarda el estado actual del contexto
+            ctx.translate(canvas.width / 2, canvas.height / 2); // Translada el origen de coordenadas al centro del canvas
+            ctx.rotate((Math.PI / 30) * minutes + (Math.PI / 1800) * seconds); // Rota el contexto según los minutos y segundos
+            ctx.beginPath();
+            ctx.moveTo(0, 0); // Mueve el punto de inicio
+            ctx.lineTo(0, -80); // Dibuja una línea hacia arriba
+            ctx.strokeStyle = "blue"; // Establece el color del borde
+            ctx.lineWidth = 6; // Establece el ancho de línea
+            ctx.stroke(); // Dibuja la manecilla de los minutos
+            ctx.closePath(); // Cierra el camino
+            ctx.restore(); // Restaura el estado del contexto
+    
+            // Dibujar la manecilla de los segundos con efecto de neón
+            ctx.save(); // Guarda el estado actual del contexto
+            ctx.translate(canvas.width / 2, canvas.height / 2); // Translada el origen de coordenadas al centro del canvas
+            ctx.rotate((Math.PI / 30) * seconds); // Rota el contexto según los segundos
+            ctx.beginPath();
+            ctx.moveTo(0, 0); // Mueve el punto de inicio
+            ctx.lineTo(0, -90); // Dibuja una línea hacia arriba
+            ctx.strokeStyle = "red"; // Establece el color del borde
+            ctx.lineWidth = 3; // Establece el ancho de línea
+            ctx.stroke(); // Dibuja la manecilla de los segundos
+            ctx.closePath(); // Cierra el camino
+            ctx.restore(); // Restaura el estado del contexto
+    
+            // Dibujar un punto en el centro de las tres manecillas
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 4, 0, Math.PI * 2); // Dibuja un arco circular
+            ctx.fillStyle = "blue"; // Establece el color de relleno
+            ctx.fill(); // Rellena el punto en el centro
+            ctx.closePath(); // Cierra el camino
+    
+            // Dibujar los números de las horas con efecto de neón
+            ctx.font = "20px Arial"; // Establece la fuente y el tamaño del texto
+            ctx.fillStyle = "blue"; // Establece el color del texto
+            ctx.textAlign = "center"; // Establece la alineación horizontal del texto
+            ctx.textBaseline = "middle"; // Establece la alineación vertical del texto
+            for (let i = 1; i <= 12; i++) {
+                const angle = (Math.PI / 6) * i; // Calcula el ángulo para posicionar los números de las horas
+                const x = canvas.width / 2 + Math.sin(angle) * 120; // Calcula la posición X del número
+                const y = canvas.height / 2 - Math.cos(angle) * 120; // Calcula la posición Y del número
+                ctx.fillText(i.toString(), x, y); // Dibuja el número
+            }
+        }
+    
+        // Llamar a la función para dibujar el reloj cada segundo
+        setInterval(drawClock, 1000); // Llama a la función drawClock() cada segundo
+    
+        // Dibujar el reloj inicialmente
+        drawClock(); // Llama a drawClock() una vez al cargar la página
+    </script>
+    
+    
+</body>
+</html>

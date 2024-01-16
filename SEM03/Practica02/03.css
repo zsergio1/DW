@@ -1,0 +1,132 @@
+
+* {
+    box-sizing: border-box; /* Ajusta el modelo de caja para incluir el borde en el tamaño total */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina relleno por defecto */
+  }
+  
+  /* Estilo base para el cuerpo de la página */
+  body {
+    background-color: white; /* Fondo blanco */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina relleno por defecto */
+  }
+  
+  /* Estilos para el título h1 */
+  h1 {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-weight: 700; /* Grosor de la fuente */
+    font-family: 'Shizuru', cursive;
+    color: white; /* Color del texto */
+  }
+  
+  /* Estilos para el título h2 */
+  h2 {
+    text-align: center;
+    font-family: 'Oleo Script', cursive; /* Fuente personalizada */
+    font-size: 50px; /* Tamaño de fuente */
+    color: red; /* Color del texto */
+  }
+  
+  /* Estilos para el título h3 */
+  h3 {
+    text-align: center;
+    font-family: 'Explora', cursive; /* Fuente personalizada */
+    font-size: 30px; /* Tamaño de fuente */
+    font-family: 'Miltonian', cursive;
+    padding: 20px;
+
+  }
+  
+  /* Estilos para el título h4 */
+  h4 {
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 25px; /* Tamaño de fuente */
+    color: steelblue; /* Color del texto */
+    padding: 20px;
+  }
+  
+  /* Estilos para el título h5 */
+  h5 {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-family: 'Kings', cursive; /* Fuente personalizada */
+    color: white; /* Color del texto */
+    font-size: 25px; /* Tamaño de fuente */
+   
+  }
+  
+  /* Estilos para el encabezado */
+  .header {
+    background-color: blue; /* Fondo azul */
+    text-align: center; /* Centra el contenido horizontalmente */
+  }
+  
+  /* Estilos para el área principal */
+  .main {
+    background-color: white; /* Fondo blanco */
+    margin: 3px; /* Margen exterior de 5px */
+    height: auto; 
+   overflow: hidden; /* Clearfix para solucionar problemas de float */
+  }
+  
+  /* Estilos para el menú */
+  .menu {
+    background-color: greenyellow; /* Fondo verde-amarillo */
+    float: left; /* Flotar a la izquierda */
+    width: 20%; /* Ancho fijo para el menú */
+    height: 500px;
+    margin-right: 5px; /* Margen derecho de 5px */
+  }
+  
+  /* Estilos para el contenido principal */
+  .principal {
+    background-color: rgb(149, 152, 155); /* Fondo gris */
+    float: left; /* Flotar a la izquierda */
+    width: 50%; /* Ancho fijo para el contenido principal */
+    height: 500px;
+    margin-right: 5px; /* Margen derecho de 5px */
+  }
+  
+  /* Estilos para el aside */
+  .aside {
+    background-color: skyblue; /* Fondo celeste */
+    float: right;
+    width: 28%; /* Ancho fijo para el aside */
+    height: 500px;
+    
+  
+  }
+  
+  /* Estilos para el pie de página */
+  .footer {
+   width: 100%;
+   height: 80px;
+    background-color: black; /* Fondo negro */
+    clear: both; /* Limpiar flotantes */
+    text-align: center; /* Centra el contenido horizontalmente */
+    
+  }
+  
+  /* Media query para pantallas pequeñas (máximo 600px) */
+  @media only screen and (max-width: 600px) {
+    /* Restablecer flotación y ancho para todos los elementos en pantallas pequeñas */
+    .header,
+    .menu,
+    .principal,
+    .aside,
+    .footer
+    {
+      float: none; /* Elimina la flotación */
+      width: 100%; /* Ocupa todo el ancho disponible */
+      height: 130px;
+      margin-right: 0; /* Elimina el margen derecho */
+    }
+  }
+  /* Media query para pantallas mayores a 600px */
+@media only screen and (min-width: 600px) {
+
+    
+
+}
+  

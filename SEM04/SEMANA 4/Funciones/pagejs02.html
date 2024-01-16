@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page JS 02</title>
+</head>
+<body>
+    <script>
+        let nota1,nota2,nota3;
+        let media;
+
+        dato1=prompt("Primer número?", "@");
+        dato2=prompt("Segundo número?", "@");
+        dato3=prompt("Tercer número?", "@");
+
+        nota1=parseInt(dato1);
+        nota2=parseInt(dato2);
+        nota3=parseInt(dato3);
+
+        media=(nota1 + nota2 + nota3)/3; 
+        if(media > 16){
+            resultat= "Excelente";
+        }
+        else if(media >=14){
+            resultat= "Notable";
+        }
+        else resultat = "Aprobado";
+        
+        document.write(`<h2>La nota final es ${media} y eso es ${resultat}<h2>`)
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+/* Estilo base para todos los elementos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Establecer altura del elemento HTML al 100% de la ventana */
+  html {
+    height: 100%;
+  }
+  
+  /* Estilo base para el cuerpo de la página */
+  body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: grid; /* Usar grid en lugar de flex para el cuerpo */
+    grid-template-rows: 100px 1fr 100px; /* Tres filas: encabezado, contenido principal y pie de página */
+    grid-template-columns: 1fr; /* Una sola columna para todos los tamaños de pantalla */
+  }
+  
+  /* Estilos para el título h1 */
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Rubik Iso', cursive;
+    color: white;
+  }
+  
+  /* Estilos para el título h2 */
+  h2 {
+    font-family: 'Oleo Script', cursive;
+    font-size: 50px;
+    color: red;
+  }
+  
+  /* Estilos para el título h3 */
+  h3 {
+    font-family: 'Explora', cursive;
+    font-size: 50px;
+  }
+  
+  /* Estilos para el título h4 */
+  h4 {
+    font-family: 'Twinkle Star', cursive;
+    font-size: 25px;
+    color: steelblue;
+  }
+  
+  /* Estilos para el título h5 */
+  h5 {
+    text-align: center;
+    font-family: 'Kings', cursive;
+    color: white;
+    font-size: 25px;
+  }
+  
+  /* Estilos para el encabezado */
+  .header {
+    background-color: blue;
+    text-align: center;
+  }
+  
+  /* Estilos para el área principal */
+  .main {
+    display: grid; /* Usar grid también para el contenido principal */
+    grid-template-columns: 20% 60% 20%; /* Tres columnas: menú, principal, aside */
+    grid-gap: 5px;
+    background-color: white;
+    min-height: calc(100vh - 200px); /* Ajustado para el alto del encabezado y el pie de página */
+    margin: 5px;
+  }
+  
+  /* Estilos para el menú */
+  .menu {
+    background-color: greenyellow;
+    text-align: center;
+  }
+  
+  /* Estilos para el contenido principal */
+  .principal {
+    background-color: rgb(149, 152, 155);
+    text-align: center;
+  }
+  
+  /* Estilos para el aside */
+  .aside {
+    background-color: skyblue;
+    text-align: center;
+  }
+  
+  /* Estilos para el pie de página */
+  .footer {
+    background-color: black;
+    text-align: center;
+  }
+  
+  /* Media query para pantallas pequeñas (máximo 600px) */
+  @media only screen and (max-width: 600px) {
+    body {
+      grid-template-rows: 80px 1fr 10px; /* Ajuste de alturas de filas */
+    }
+  
+    .main {
+      grid-template-columns: 1fr; /* Una sola columna para pantallas pequeñas */
+    }
+  
+    /* Restablecer la posición de las filas para todos los elementos */
+    .header{
+        
+    }
+    .principal,
+    .menu,
+    .aside,
+    .footer {
+      grid-row: auto;
+      height: 150px;
+      
+    }
+  }
+  
+  /* Media query para pantallas grandes (más de 600px) */
+  @media only screen and (min-width: 600px) {
+    .footer {
+      width: auto; /* Ajustar el ancho del pie de página */
+    }
+  }
+  

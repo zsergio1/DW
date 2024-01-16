@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 03</title>
+    <script>
+
+        // Fuciones Anonimas, como objeto, autoinvocadas, flecha
+        
+        /*function suma(a,b){
+            s=a+b;
+            return s;
+        }*/
+        /*suma=function(a,b){
+            s=a+b;
+            return s;
+        }*/
+        /*const suma=function(a,b){
+            s=a+b; return s;
+        }*/
+        /*r=suma(8, 10);
+        document.write("Resultado: " + r);*/
+
+        // Función como Objeto
+        /*var myFunction = new Function("a","b", "return a+b");
+        var x = myFunction(5,3)
+        document.write("Resultado: "+ x);*/
+
+        /*(function(a,b){
+            s=a+b; document.write("Resultado: "+ s); return s;
+        })(15,16);*/ 
+
+        /*function f1(a,b){
+            s=a+b; return s;
+        }*/
+        let f1 =(a,b)=>a+b;
+        document.write("Resultado: "+ f1(10,16));
+
+        // Funcion autoinvocadas
+        (function(){
+            document.write("Jaime");
+        })();
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
